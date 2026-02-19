@@ -307,3 +307,16 @@ if ( ! function_exists( 'inspiro_add_container_width_css_variables' ) ) :
 	}
 endif;
 add_action( 'wp_enqueue_scripts', 'inspiro_add_container_width_css_variables' );
+
+/**
+ * Custom cursor on links
+ */
+function inspiro_custom_cursor_css() {
+	$css = '
+		a:hover {
+			cursor: url("http://localhost/ink/wp-content/uploads/2026/02/cursor-hirondelle.png"), pointer !important;
+		}
+	';
+	wp_add_inline_style( 'inspiro-style', $css );
+}
+add_action( 'wp_enqueue_scripts', 'inspiro_custom_cursor_css', 20 );
