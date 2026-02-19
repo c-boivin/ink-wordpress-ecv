@@ -96,13 +96,14 @@ class Ajax extends Lib\Base\Ajax
                 do_action( 'admin_page_access_denied' );
                 wp_die( 'Bookly: ' . __( 'You do not have sufficient permissions to access this page.' ) );
             } while ( 0 );
-        } elseif ( self::parameter( 'id' ) == 0
-            && ! Lib\Config::proActive()
-            && Lib\Entities\Staff::query()->count() > 0
-        ) {
-            do_action( 'admin_page_access_denied' );
-            wp_die( 'Bookly: ' . __( 'You do not have sufficient permissions to access this page.' ) );
         }
+        // } elseif ( self::parameter( 'id' ) == 0
+        //     && ! Lib\Config::proActive()
+        //     && Lib\Entities\Staff::query()->count() > 0
+        // ) {
+        //     do_action( 'admin_page_access_denied' );
+        //     wp_die( 'Bookly: ' . __( 'You do not have sufficient permissions to access this page.' ) );
+        // }
 
         $parameters = self::parameters();
         if ( ! isset( $parameters['category_id'] ) || ! $parameters['category_id'] ) {
